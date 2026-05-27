@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Shipment;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreShipmentRequest;
 
 class ShipmentController extends Controller
 {
@@ -12,16 +12,9 @@ class ShipmentController extends Controller
         return response()->json($shipments, 200);
     }
 
-    public function store(Request $request) {
-        $validatedData = $request->validate([
-            'origin_postal_code' => 'required|string',
-            'origin_street' => 'required|string',
-            'destination_postal_code' => 'required|string',
-            'destination_street' => 'required|string',
-            'weight_kg' => 'required|numeric',
-        ]);
-
-        $shipment = Shipment::create($validatedData);
+    public function store(StoreShipmentRequest $request) {
+        $shipment = Shipment::create($request->validated());
         return response()->json($shipment, 201);
     }
 }
+       
