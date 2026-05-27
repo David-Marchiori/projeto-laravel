@@ -11,8 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pedidos', function (Blueprint $table) {
+        Schema::create('shipments', function (Blueprint $table) {
             $table->id();
+            $table->string('origin_postal_code');
+            $table->string('origin_street');
+            $table->string('destination_postal_code');
+            $table->string('destination_street');
+            $table->decimal('weight_kg', 8, 2);
+            $table->string('status')->default('pending'); 
             $table->timestamps();
         });
     }
@@ -22,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pedidos');
+        Schema::dropIfExists('shipments');
     }
 };
