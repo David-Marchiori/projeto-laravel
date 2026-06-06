@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ShipmentController;
 use App\Http\Controllers\SenderController;
+use App\Http\Controllers\RecipientController;
 use Illuminate\Support\Facades\Route;
 
 

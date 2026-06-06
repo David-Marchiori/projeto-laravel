@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 use App\Models\Sender;
 use App\Http\Requests\SenderRequest;
-use Illuminate\Http\Request;    
 
 class SenderController extends Controller
 {
