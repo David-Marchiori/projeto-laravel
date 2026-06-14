@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->integer ('weight_start')->unsigned();
             $table->integer ('weight_end')->unsigned();
-            $table->decimal('delivery_price', 10, 2);
+            $table->decimal('base_price', 10, 2);
+            $table->decimal('price_per_kg', 10, 2);
             $table->foreignId('region_id')->constrained();
             $table->timestamps();
         });

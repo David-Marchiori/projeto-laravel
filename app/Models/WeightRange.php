@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Attributes\Fillable;
 #[Fillable([
     'weight_range_initial',
     'weight_range_final',
-    'delivery_price',
+    'base_price',
+    'price_per_kg',
     'region_id'
 ])]
 
