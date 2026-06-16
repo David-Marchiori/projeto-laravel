@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('weight_ranges', function (Blueprint $table) {
             $table->id();
-            $table->integer ('weight_start')->unsigned();
-            $table->integer ('weight_end')->unsigned();
+            $table->integer('weight_start')->unsigned();
+            $table->integer('weight_end')->unsigned();
             $table->decimal('base_price', 10, 2);
             $table->decimal('price_per_kg', 10, 2);
             $table->foreignId('region_id')->constrained();
