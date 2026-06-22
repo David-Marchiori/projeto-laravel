@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Region;
 use App\Models\WeightRange;
+use App\Models\Shipment;
 
 class QuoteService
 {
@@ -54,6 +55,23 @@ class QuoteService
             'delivery_days' => $region->delivery_days,
             'weight_used' => $finalWeight,
             'price' => $finalPrice,
+            'width' => $data['width'],
+            'height' => $data['height'],
+            'length' => $data['length']
         ];
+    }
+
+    public function saveQuote($data)
+    {
+        $shipment = Shipment::create([
+            'origin_postal_code' => $data['origin_postal_code'],
+            'origin_street' => $data['origin_street'],
+            'destination_postal_code' => $data['destination_postal_code'],
+            'destination_street' => $data['destination_street'],
+            'weight_kg' => $data['weight_kg'],
+            'status' => 'pending',
+        ]);
+
+        return $shipment;
     }
 }

@@ -14,11 +14,13 @@ class StoreShipmentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'origin_postal_code'      => 'required|string|min:8|max:9',
-            'origin_street'           => 'required|string|max:255',
-            'destination_postal_code' => 'required|string|min:8|max:9',
-            'destination_street'      => 'required|string|max:255',
-            'weight_kg'               => 'required|numeric|gt:0',
+        'origin_postal_code'      => 'required|string|size:9',
+        'destination_postal_code' => 'required|string|size:9',
+        'destination_street'      => 'required|string|max:255',
+        'weight_kg'               => 'required|numeric|gt:0',
+        'width'                   => 'required|numeric|gt:0',
+        'height'                  => 'required|numeric|gt:0',
+        'length'                  => 'required|numeric|gt:0',
         ];
     }
 }
